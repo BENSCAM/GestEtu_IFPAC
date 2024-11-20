@@ -16,10 +16,10 @@ class CampusController extends Controller
      */
     public function index(Request $request): View
     {
-        $campuses = Campus::paginate();
+        $campus = Campus::paginate();
 
-        return view('campus.index', compact('campuses'))
-            ->with('i', ($request->input('page', 1) - 1) * $campuses->perPage());
+        return view('campus.index', compact('campus'))
+            ->with('i', ($request->input('page', 1) - 1) * $campus->perPage());
     }
 
     /**
@@ -39,7 +39,7 @@ class CampusController extends Controller
     {
         Campus::create($request->validated());
 
-        return Redirect::route('campuses.index')
+        return Redirect::route('campus.index')
             ->with('success', 'Campus created successfully.');
     }
 
@@ -70,7 +70,7 @@ class CampusController extends Controller
     {
         $campus->update($request->validated());
 
-        return Redirect::route('campuses.index')
+        return Redirect::route('campus.index')
             ->with('success', 'Campus updated successfully');
     }
 
@@ -78,7 +78,7 @@ class CampusController extends Controller
     {
         Campus::find($id)->delete();
 
-        return Redirect::route('campuses.index')
+        return Redirect::route('campus.index')
             ->with('success', 'Campus deleted successfully');
     }
 }

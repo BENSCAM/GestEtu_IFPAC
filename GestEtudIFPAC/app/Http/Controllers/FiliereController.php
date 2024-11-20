@@ -39,7 +39,7 @@ class FiliereController extends Controller
     {
         Filiere::create($request->validated());
 
-        return Redirect::route('filieres.index')
+        return Redirect::route('filiere.index')
             ->with('success', 'Filiere created successfully.');
     }
 
@@ -70,7 +70,7 @@ class FiliereController extends Controller
     {
         $filiere->update($request->validated());
 
-        return Redirect::route('filieres.index')
+        return Redirect::route('filiere.index')
             ->with('success', 'Filiere updated successfully');
     }
 
@@ -78,7 +78,7 @@ class FiliereController extends Controller
     {
         Filiere::find($id)->delete();
 
-        return Redirect::route('filieres.index')
+        return Redirect::route('filiere.index')
             ->with('success', 'Filiere deleted successfully');
     }
 }
