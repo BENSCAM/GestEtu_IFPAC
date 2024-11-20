@@ -39,7 +39,7 @@ class EtudiantController extends Controller
     {
         Etudiant::create($request->validated());
 
-        return Redirect::route('etudiants.index')
+        return Redirect::route('etudiant.index')
             ->with('success', 'Etudiant created successfully.');
     }
 
@@ -70,7 +70,7 @@ class EtudiantController extends Controller
     {
         $etudiant->update($request->validated());
 
-        return Redirect::route('etudiants.index')
+        return Redirect::route('etudiant.index')
             ->with('success', 'Etudiant updated successfully');
     }
 
@@ -78,7 +78,7 @@ class EtudiantController extends Controller
     {
         Etudiant::find($id)->delete();
 
-        return Redirect::route('etudiants.index')
+        return Redirect::route('etudiant.index')
             ->with('success', 'Etudiant deleted successfully');
     }
 }

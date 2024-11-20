@@ -15,7 +15,7 @@
                             <p class="mt-2 text-sm text-gray-700">A list of all the {{ __('Etudiants') }}.</p>
                         </div>
                         <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
-                            <a type="button" href="{{ route('etudiants.create') }}" class="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Add new</a>
+                            <a type="button" href="{{ route('etudiant.create') }}" class="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Add new</a>
                         </div>
                     </div>
 
@@ -26,7 +26,7 @@
                                     <thead>
                                     <tr>
                                         <th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">No</th>
-                                        
+
 									<th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">Matricule</th>
 									<th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">Nom</th>
 									<th scope="col" class="py-3 pl-4 pr-3 text-left text-xs font-semibold uppercase tracking-wide text-gray-500">Prenom</th>
@@ -43,7 +43,7 @@
                                     @foreach ($etudiants as $etudiant)
                                         <tr class="even:bg-gray-50">
                                             <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-semibold text-gray-900">{{ ++$i }}</td>
-                                            
+
 										<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $etudiant->Matricule }}</td>
 										<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $etudiant->Nom }}</td>
 										<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $etudiant->Prenom }}</td>
@@ -54,12 +54,12 @@
 										<td class="whitespace-nowrap px-3 py-4 text-sm text-gray-500">{{ $etudiant->Email }}</td>
 
                                             <td class="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-gray-900">
-                                                <form action="{{ route('etudiants.destroy', $etudiant->id) }}" method="POST">
-                                                    <a href="{{ route('etudiants.show', $etudiant->id) }}" class="text-gray-600 font-bold hover:text-gray-900 mr-2">{{ __('Show') }}</a>
-                                                    <a href="{{ route('etudiants.edit', $etudiant->id) }}" class="text-indigo-600 font-bold hover:text-indigo-900  mr-2">{{ __('Edit') }}</a>
+                                                <form action="{{ route('etudiant.destroy', $etudiant->id) }}" method="POST">
+                                                    <a href="{{ route('etudiant.show', $etudiant->id) }}" class="text-gray-600 font-bold hover:text-gray-900 mr-2">{{ __('Show') }}</a>
+                                                    <a href="{{ route('etudiant.edit', $etudiant->id) }}" class="text-indigo-600 font-bold hover:text-indigo-900  mr-2">{{ __('Edit') }}</a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <a href="{{ route('etudiants.destroy', $etudiant->id) }}" class="text-red-600 font-bold hover:text-red-900" onclick="event.preventDefault(); confirm('Are you sure to delete?') ? this.closest('form').submit() : false;">{{ __('Delete') }}</a>
+                                                    <a href="{{ route('etudiant.destroy', $etudiant->id) }}" class="text-red-600 font-bold hover:text-red-900" onclick="event.preventDefault(); confirm('Are you sure to delete?') ? this.closest('form').submit() : false;">{{ __('Delete') }}</a>
                                                 </form>
                                             </td>
                                         </tr>

@@ -1,7 +1,7 @@
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Update') }} Etudiant
+            {{ __('Update') }} Paiement
         </h2>
     </x-slot>
 
@@ -11,21 +11,21 @@
                 <div class="w-full">
                     <div class="sm:flex sm:items-center">
                         <div class="sm:flex-auto">
-                            <h1 class="text-base font-semibold leading-6 text-gray-900">{{ __('Update') }} Etudiant</h1>
-                            <p class="mt-2 text-sm text-gray-700">Update existing {{ __('Etudiant') }}.</p>
+                            <h1 class="text-base font-semibold leading-6 text-gray-900">{{ __('Update') }} Paiement</h1>
+                            <p class="mt-2 text-sm text-gray-700">Update existing {{ __('Paiement') }}.</p>
                         </div>
                         <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
-                            <a type="button" href="{{ route('etudiant.index') }}" class="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Back</a>
+                            <a type="button" href="{{ route('paiements.index') }}" class="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Back</a>
                         </div>
                     </div>
 
                     <div class="flow-root">
                         <div class="mt-8 overflow-x-auto">
                             <div class="max-w-xl py-2 align-middle">
-                                <form method="POST" action="{{ route('etudiant.update', $etudiant->id) }}"  role="form" enctype="multipart/form-data">
+                                <form method="POST" action="{{ route('paiements.update', $paiement->id) }}"  role="form" enctype="multipart/form-data">
                                     {{ method_field('PATCH') }}
                                     @csrf
-                                    @include('etudiant.form')
+                                    @include('paiement.form')
                                 </form>
                             </div>
                         </div>

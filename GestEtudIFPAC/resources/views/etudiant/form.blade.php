@@ -1,5 +1,5 @@
 <div class="space-y-6">
-    
+
     <div>
         <x-input-label for="matricule" :value="__('Matricule')"/>
         <x-text-input id="matricule" name="Matricule" type="text" class="mt-1 block w-full" :value="old('Matricule', $etudiant?->Matricule)" autocomplete="Matricule" placeholder="Matricule"/>
@@ -22,7 +22,7 @@
     </div>
     <div>
         <x-input-label for="date_naissance" :value="__('Datenaissance')"/>
-        <x-text-input id="date_naissance" name="DateNaissance" type="text" class="mt-1 block w-full" :value="old('DateNaissance', $etudiant?->DateNaissance)" autocomplete="DateNaissance" placeholder="Datenaissance"/>
+        <x-text-input id="date_naissance" name="DateNaissance" type="date" class="mt-1 block w-full" :value="old('DateNaissance', $etudiant?->DateNaissance)" autocomplete="DateNaissance" placeholder="Datenaissance"/>
         <x-input-error class="mt-2" :messages="$errors->get('DateNaissance')"/>
     </div>
     <div>

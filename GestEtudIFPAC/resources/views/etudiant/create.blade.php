@@ -15,14 +15,14 @@
                             <p class="mt-2 text-sm text-gray-700">Add a new {{ __('Etudiant') }}.</p>
                         </div>
                         <div class="mt-4 sm:ml-16 sm:mt-0 sm:flex-none">
-                            <a type="button" href="{{ route('etudiants.index') }}" class="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Back</a>
+                            <a type="button" href="{{ route('etudiant.index') }}" class="block rounded-md bg-indigo-600 px-3 py-2 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Back</a>
                         </div>
                     </div>
 
                     <div class="flow-root">
                         <div class="mt-8 overflow-x-auto">
                             <div class="max-w-xl py-2 align-middle">
-                                <form method="POST" action="{{ route('etudiants.store') }}"  role="form" enctype="multipart/form-data">
+                                <form method="POST" action="{{ route('etudiant.store') }}"  role="form" enctype="multipart/form-data">
                                     @csrf
 
                                     @include('etudiant.form')
