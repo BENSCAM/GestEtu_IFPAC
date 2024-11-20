@@ -16,10 +16,10 @@ class CampusController extends Controller
      */
     public function index(Request $request): View
     {
-        $campus = Campus::paginate();
+        $campuses = Campus::paginate();
 
-        return view('campus.index', compact('campus'))
-            ->with('i', ($request->input('page', 1) - 1) * $campus->perPage());
+        return view('campus.index', compact('campuses'))
+            ->with('i', ($request->input('page', 1) - 1) * $campuses->perPage());
     }
 
     /**
