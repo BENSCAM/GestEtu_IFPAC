@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('mode_paiement', function (Blueprint $table) {
+        Schema::create('mode_paiements', function (Blueprint $table) {
             $table->id();
             $table->string('nom_mode')->unique();                 // ex: Espèces, Chèque, Carte bancaire, Virement
             $table->string('reference')->nullable();              // Numéro de chèque, référence de transaction

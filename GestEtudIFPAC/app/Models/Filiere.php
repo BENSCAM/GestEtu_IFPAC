@@ -18,7 +18,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Filiere extends Model
 {
-    
+
     protected $perPage = 20;
 
     /**
