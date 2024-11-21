@@ -13,7 +13,28 @@
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
-                        {{ __('IFPAC') }}
+                        {{ __('Dashboard') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('etudiant.index')" :active="request()->routeIs('etudiant.*')">
+                        {{ __('Étudiants') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('filiere.index')" :active="request()->routeIs('filiere.*')">
+                        {{ __('Filières') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('pension.index')" :active="request()->routeIs('pension.*')">
+                        {{ __('Pensions') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('inscrire.index')" :active="request()->routeIs('inscrire.*')">
+                        {{ __('Inscriptions') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('modePaiement.index')" :active="request()->routeIs('modePaiement.*')">
+                        {{ __('Modes de Paiement') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('paiement.index')" :active="request()->routeIs('paiement.*')">
+                        {{ __('Paiements') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('campus.index')" :active="request()->routeIs('campus.*')">
+                        {{ __('Campus') }}
                     </x-nav-link>
                 </div>
             </div>
@@ -43,7 +64,7 @@
                             @csrf
 
                             <x-dropdown-link :href="route('logout')"
-                                    onclick="event.preventDefault();
+                                             onclick="event.preventDefault();
                                                 this.closest('form').submit();">
                                 {{ __('Log Out') }}
                             </x-dropdown-link>
@@ -70,6 +91,27 @@
             <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('etudiant.index')" :active="request()->routeIs('etudiant.*')">
+                {{ __('Étudiants') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('filiere.index')" :active="request()->routeIs('filiere.*')">
+                {{ __('Filières') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('pension.index')" :active="request()->routeIs('pension.*')">
+                {{ __('Pensions') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('inscrire.index')" :active="request()->routeIs('inscrire.*')">
+                {{ __('Inscriptions') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('modePaiement.index')" :active="request()->routeIs('modePaiement.*')">
+                {{ __('Modes de Paiement') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('paiement.index')" :active="request()->routeIs('paiement.*')">
+                {{ __('Paiements') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('campus.index')" :active="request()->routeIs('campus.*')">
+                {{ __('Campus') }}
+            </x-responsive-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->
@@ -89,7 +131,7 @@
                     @csrf
 
                     <x-responsive-nav-link :href="route('logout')"
-                            onclick="event.preventDefault();
+                                           onclick="event.preventDefault();
                                         this.closest('form').submit();">
                         {{ __('Log Out') }}
                     </x-responsive-nav-link>
