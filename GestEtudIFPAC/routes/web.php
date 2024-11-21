@@ -3,6 +3,7 @@
 use App\Http\Controllers\CampusController;
 use App\Http\Controllers\EtudiantController;
 use App\Http\Controllers\FiliereController;
+use App\Http\Controllers\ImportController;
 use App\Http\Controllers\InscrireController;
 use App\Http\Controllers\ModePaiementController;
 use App\Http\Controllers\PaiementController;
@@ -29,6 +30,9 @@ Route::middleware('auth')->group(function () {
     Route::resource('modePaiement', ModePaiementController::class);
     Route::resource('paiement', PaiementController::class);
     Route::resource('campus', CampusController::class);
+
+
+    Route::post('/import', [ImportController::class, 'import'])->name('import');
 });
 
 require __DIR__.'/auth.php';
