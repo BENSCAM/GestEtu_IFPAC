@@ -4,8 +4,9 @@ namespace App\Imports;
 
 use App\Models\Filiere;
 use Maatwebsite\Excel\Concerns\ToModel;
+use Maatwebsite\Excel\Concerns\WithHeadingRow;
 
-class FilieresImport implements ToModel
+class FilieresImport implements ToModel,WithHeadingRow
 {
     /**
     * @param array $row
@@ -14,17 +15,28 @@ class FilieresImport implements ToModel
     */
     public function model(array $row)
     {
-         // Vérifier si la filiere existe déjà
-         $existingFiliere = Filiere::where('nom', $row['nom'])->first();
+        // Vérifiez si les clés 'nom' et 'description' existent dans $row
+            if (!isset($row['nom']) || !isset($row['description'])) {
+                // Ignorer la ligne si les clés sont manquantes
+                return null;
+            }
 
-         if ($existingFiliere || (empty($row['nom']) || empty($row['description']))) {
-            // Si le pays existe déjà, ne rien faire (ignorer la ligne)
-            return null;
-        }
-        //sinon
-        return new Filiere([
-            'nom' => $row['nom'],   
-            'description' => $row['description'],
-        ]);
+            // Vérifiez si le champ est vide
+            if (empty($row['nom']) || empty($row['description'])) {
+                // Ignorer la ligne si les valeurs sont vides
+                return null;
+            }
+
+            // Vérifiez si la filière existe déjà
+            $existingFiliere = Filiere::where('nom', $row['nom'])->first();
+            if ($existingFiliere) {
+                return null; // Ignorer la ligne si la filière existe déjà
+            }
+
+            // Créer une nouvelle filière
+            return new Filiere([
+                'nom' => $row['nom'],
+                'description' => $row['description'],
+            ]);
     }
 }

@@ -78,6 +78,9 @@
                                     <button type="submit" class="mt-4 rounded-md bg-indigo-600 px-4 py-2 text-white">Import</button>
                                 </form>
 
+                               
+                       
+
                                 <div class="mt-4 px-4">
                                     {!! $filieres->withQueryString()->links() !!}
                                 </div>

@@ -57,12 +57,21 @@ class ImportController extends Controller
     }
 
     public function importFiliere(Request $request){
-        $request->validate([
-            'file' => 'required|mimes:xlsx,xls,csv',
-        ]);
 
-       Excel::import(new FilieresImport, $request->file('file'));
+    //     $request->validate([
+    //         'file' => 'required|mimes:xlsx,xls,csv',
+    //     ]);
+
+    //    Excel::import(new FilieresImport, $request->file('file'));
     
-        return redirect()->route('filiere.index')->with('success', 'Student imported successfully.');
+    //     return redirect()->route('filiere.index')->with('success', 'Student imported successfully.');
+
+        try {
+            Excel::import(new FilieresImport, $request->file('file'));
+            return redirect()->route('Campus.index')->with('success', 'Campus importés avec succès.');
+        } catch (\Exception $e) {
+            return back()->withErrors(['file' => 'Erreur lors de l\'importation : ' . $e->getMessage()]);
+        }
+
     }
 }

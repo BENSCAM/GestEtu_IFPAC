@@ -59,39 +59,27 @@
 
                                 
                                 <!-- Import Form -->
-                    <div class="mt-8">
-                        <h4 class="text-lg font-semibold text-gray-900 mb-4">Import Campus</h4>
-                        <form action="{{ route('importCampus') }}" method="POST" enctype="multipart/form-data" class="space-y-4">
-                            @csrf
-                            <div>
-                                <label for="file-upload" class="block text-sm font-medium text-gray-700">Import Excel File</label>
-                                <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
-                                    <div class="space-y-1 text-center">
-                                        <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
-                                            <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                        </svg>
-                                        <div class="flex text-sm text-gray-600">
-                                            <label for="file-upload" class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
-                                                <span>Upload a file</span>
-                                                <input id="file-upload" name="file" type="file" class="sr-only" accept=".xlsx,.xls,.csv">
-                                            </label>
-                                            <p class="pl-1">or drag and drop</p>
-                                        </div>
-                                        <p class="text-xs text-gray-500">XLSX, XLS, CSV up to 10MB</p>
-                                        <div>
-                                            <p class="text-xs text-gray-500">The file can have column : Nom, adresse, ville</p>
+                                <form action="{{ route('importCampus') }}" method="POST" enctype="multipart/form-data" class="mt-8 bg-white p-6 rounded-lg shadow">
+                                    @csrf
+                                    <div class="col-span-full">
+                                        <label for="file-upload" class="block text-sm font-medium leading-6 text-gray-900">Import Excel File</label>
+                                        <div class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                                            <div class="flex items-center justify-center w-full">
+                                                <label for="file-upload" class="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
+                                                    <div class="flex flex-col items-center justify-center pt-5 pb-6">
+                                                        <svg class="w-8 h-8 mb-4 text-gray-500 dark:text-gray-400" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 20 16">
+                                                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 13h3a3 3 0 0 0 0-6h-.025A5.56 5.56 0 0 0 16 6.5 5.5 5.5 0 0 0 5.207 5.021C5.137 5.017 5.071 5 5 5a4 4 0 0 0 0 8h2.167M10 15V6m0 0L8 8m2-2 2 2"/>
+                                                        </svg>
+                                                        <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to upload</span> or drag and drop</p>
+                                                        <p class="text-xs text-gray-500 dark:text-gray-400">XLSX, XLS, CSV up to 10MB</p>
+                                                    </div>
+                                                    <input id="file-upload" name="file" type="file" accept=".xlsx,.xls,.csv" class="sr-only">
+                                                </label>
+                                            </div>
                                         </div>
                                     </div>
-                                </div>
-                            </div>
-                            <div>
-                                <button type="submit" class="inline-flex items-center px-4 py-2 bg-indigo-600 border border-transparent rounded-md font-semibold text-xs text-white uppercase tracking-widest hover:bg-indigo-500 active:bg-indigo-900 focus:outline-none focus:border-indigo-900 focus:ring focus:ring-indigo-300 disabled:opacity-25 transition">
-                                    Import 
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+                                    <button type="submit" class="mt-4 rounded-md bg-indigo-600 px-4 py-2 text-white">Import</button>
+                                </form>
 
                                 <div class="mt-4 px-4">
                                     {!! $campuses->withQueryString()->links() !!}
@@ -104,25 +92,5 @@
         </div>
     </div>
 
-    <script>
-        function handleFileUpload(event) {
-            const fileInput = event.target;
-            const fileName = fileInput.files.length > 0 ? fileInput.files[0].name : '';
-            const fileNameElement = document.querySelector('.text-xs.text-gray-500');
-            const uploadTextElement = document.querySelector('.flex.text-sm.text-gray-600 p');
-            const fileIcon = document.querySelector('svg.mx-auto');
-
-            if (fileName) {
-                fileNameElement.textContent = fileName;
-                uploadTextElement.textContent = 'File selected:';
-                fileIcon.classList.add('text-green-500');
-            } else {
-                fileNameElement.textContent = 'XLSX, XLS, CSV up to 10MB';
-                uploadTextElement.textContent = 'or drag and drop';
-                fileIcon.classList.remove('text-green-500');
-            }
-        }
-
-        document.getElementById('file-upload').addEventListener('change', handleFileUpload);
-    </script>
+   
 </x-app-layout>
