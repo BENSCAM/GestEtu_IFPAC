@@ -35,6 +35,8 @@ Route::middleware('auth')->group(function () {
     Route::post('/import', [ImportController::class, 'import'])->name('import');
     Route::post('/importCampus', [ImportController::class, 'importCampus'])->name('importCampus');
     Route::post('/importFiliere', [ImportController::class, 'importFiliere'])->name('importFiliere');
+    Route::post('/importInscrire', [ImportController::class, 'importInscrire'])->name('importInscrire');
+    Route::post('/importPensions', [ImportController::class, 'importPension'])->name('importPensions');
 });
 
 require __DIR__.'/auth.php';

@@ -59,7 +59,7 @@
 
 
                                 <!-- Upload excel file -->
-                                <form action="{{ route('import') }}" method="POST" enctype="multipart/form-data" class="mt-8 bg-white p-6 rounded-lg shadow">
+                                <form action="{{ route('importInscrire') }}" method="POST" enctype="multipart/form-data" class="mt-8 bg-white p-6 rounded-lg shadow">
                                     @csrf
                                     <div class="col-span-full">
                                         <label for="file-upload" class="block text-sm font-medium leading-6 text-gray-900">Import Excel File</label>

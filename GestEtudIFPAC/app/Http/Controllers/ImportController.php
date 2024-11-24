@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use App\Imports\CampusImport ;
 use App\Models\EtudiantImport;
 use App\Imports\FilieresImport;
+use App\Imports\InscrireImport;
+use App\Imports\PensionsImport;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -73,5 +75,35 @@ class ImportController extends Controller
             return back()->withErrors(['file' => 'Erreur lors de l\'importation : ' . $e->getMessage()]);
         }
 
+    }
+
+    public function importInscrire(Request $request){
+        // dd("importing....");
+
+        // Excel::import(new InscrireImport, $request->file('file'));
+        
+        // return redirect()->route('inscrire.index')->with('success', 'Student imported successfully.');
+
+        try {
+            Excel::import(new InscrireImport, $request->file('file'));
+            return redirect()->route('inscrire.index')->with('success', 'Inscriptions importées avec succès.');
+        } catch (\Exception $e) {
+            return back()->withErrors(['file' => 'Erreur lors de l\'importation : '. $e->getMessage()]);
+        }
+    }
+
+    public function importPension(Request $request){
+        // dd("importing....");
+
+        // Excel::import(new PensionImport, $request->file('file'));
+        
+        // return redirect()->route('pension.index')->with('success', 'Student imported successfully.');
+
+        try {
+            Excel::import(new PensionsImport, $request->file('file'));
+            return redirect()->route('pension.index')->with('success', 'Pensions importées avec succès.');
+        } catch (\Exception $e) {
+            return back()->withErrors(['file' => 'Erreur lors de l\'importation : '. $e->getMessage()]);
+        }
     }
 }
